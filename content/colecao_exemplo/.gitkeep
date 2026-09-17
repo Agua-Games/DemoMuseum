@@ -1,0 +1,4 @@
+Placeholder so the folder exists in git. Rename to the real collection id, and add a
+collection.json next to it.
+
+A collection may contain subcollections: nest another folder with its own collection.json.

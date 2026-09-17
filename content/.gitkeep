@@ -1,0 +1,13 @@
+Placeholder so the folder exists in git (git does not version empty directories).
+
+Layout the MUSA builder expects:
+
+    content/<collection>/
+    ├── collection.json    # collection metadata
+    └── <piece>/
+        ├── ficha.json     # must validate against schemas/ficha.schema.json
+        └── images/        # presentation images (2D)
+
+Replace the `colecao_exemplo/peca_exemplo` scaffolding with real content.
+Heavy assets (GLB, USD, print-resolution images) do NOT belong here: upload them
+to the client bucket and reference them from ficha.json.

@@ -1,0 +1,43 @@
+# DemoMuseum — build and publish pipeline.
+#
+# STATUS: NOT WIRED YET. This workflow is documentation-as-code: it records what
+# the pipeline must do, and it runs ONLY on manual dispatch so it can never show
+# a false green or a false red in the repository's checks.
+#
+# It will become real when the platform publishes its first artifact
+# (`@musa/app@<version>` or the `musa/app` container image). At that point:
+#   1. replace the placeholder step with the real build,
+#   2. add `on: push` for the content branches,
+#   3. add the deploy credentials as repository secrets.
+#
+# The invariants this pipeline must enforce are listed in README.md.
+
+name: build and publish site
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: "Validate and report without publishing"
+        type: boolean
+        default: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this client repository
+        uses: actions/checkout@v4
+
+      - name: Show the plan (placeholder)
+        run: |
+          echo "::notice title=DemoMuseum pipeline::Not wired yet — the MUSA artifact does not exist."
+          echo "This job will eventually do:"
+          echo "  1. read museum.config.json (pinned MUSA version, museum identity)"
+          echo "  2. fetch entitlements from the MUSA server (never trust the file alone)"
+          echo "  3. install @musa/app at the pinned version"
+          echo "  4. validate every ficha.json against schemas/ficha.schema.json -> fail the build on any violation"
+          echo "  5. filter content by tier and by website_status -> a draft must never reach the payload"
+          echo "  6. resolve heavy assets from storage.assetsBaseUrl"
+          echo "  7. emit the static site and publish it to the CDN for this museum's domain"
+          echo "  8. write a build report artifact: what was included, what was filtered and why"

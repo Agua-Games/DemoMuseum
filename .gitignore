@@ -1,0 +1,36 @@
+# ---------------------------------------------------------------------------
+# DemoMuseum is a CLIENT repository of the MUSA app-service.
+# It holds content and configuration only -- never application code and never
+# large binaries (those live in the client's object storage bucket).
+# ---------------------------------------------------------------------------
+
+# --- OS artifacts ---------------------------------------------------------
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# --- Build output ---------------------------------------------------------
+build/
+dist/
+
+# --- Scratch --------------------------------------------------------------
+# Local dumps, pre-selections and dead ends.
+scratch/
+
+# --- Large media should live in the bucket, not here ----------------------
+# A model or a print-resolution image committed once is carried by every
+# clone forever. The builder resolves assets from storage.assetsBaseUrl.
+*.glb
+*.usd
+*.usda
+*.usdc
+*.usdz
+*.tif
+*.tiff
+*.psd
+
+# --- Local editor / agent configuration -----------------------------------
+.claude/
+.cursor/
+.vscode/
+.zed/

@@ -1,0 +1,19 @@
+{
+  "museum": {
+    "id": "demo-museum",
+    "name": "Demo Museum",
+    "locale": "pt-BR",
+    "domain": "demo.musa.example"
+  },
+  "musa": "0.0.0-unreleased",
+  "entitlements": {
+    "source": "https://api.musa.example/v1/entitlements/demo-museum",
+    "tier": "gold",
+    "modules": ["assistant", "streaming", "screening-room", "store"],
+    "issued": "2026-09-17",
+    "signature": null
+  },
+  "storage": {
+    "assetsBaseUrl": "https://assets.musa.example/demo-museum/"
+  }
+}
