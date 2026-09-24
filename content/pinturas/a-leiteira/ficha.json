@@ -1,0 +1,16 @@
+{
+  "asset_id": "a-leiteira",
+  "titulo": "A Leiteira",
+  "colecao": "pinturas",
+  "autor": "Johannes Vermeer",
+  "data": "1658",
+  "material": "Óleo sobre tela",
+  "descricao": "Cópia de estudo da obra de Vermeer (Rijksmuseum, domínio público).",
+  "website_status": "published",
+  "tier": "bronze",
+  "image": "images/a-leiteira.jpg",
+  "tags": [
+    "barroco",
+    "holanda"
+  ]
+}
