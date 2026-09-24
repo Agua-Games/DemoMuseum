@@ -1,0 +1,15 @@
+{
+  "asset_id": "corset-antigo",
+  "titulo": "Espartilho Antigo",
+  "colecao": "esculturas",
+  "material": "Tecido e barbatanas",
+  "descricao": "Modelo 3D de estudo (Khronos glTF Sample Assets).",
+  "website_status": "published",
+  "tier": "silver",
+  "model_primary": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Corset/glTF-Binary/Corset.glb",
+  "model_formats": [
+    "glb"
+  ],
+  "model_viewer": "three_js",
+  "model_status": "available"
+}

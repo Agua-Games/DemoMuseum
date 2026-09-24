@@ -1,0 +1,13 @@
+{
+  "asset_id": "peca_exemplo",
+  "titulo": "Peça Exemplo",
+  "colecao": "colecao_exemplo",
+  "autor": "Autor Desconhecido",
+  "data": "1900",
+  "descricao": "Peça inicial do acervo demo.",
+  "website_status": "published",
+  "tier": "bronze",
+  "tags": [
+    "exemplo"
+  ]
+}

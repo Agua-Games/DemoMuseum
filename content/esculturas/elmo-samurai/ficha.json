@@ -1,0 +1,15 @@
+{
+  "asset_id": "elmo-samurai",
+  "titulo": "Elmo Samurai (Kabuto)",
+  "colecao": "esculturas",
+  "material": "Aço laqueado",
+  "descricao": "Modelo 3D de estudo (Khronos glTF Sample Assets).",
+  "website_status": "published",
+  "tier": "silver",
+  "model_primary": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/DamagedHelmet/glTF-Binary/DamagedHelmet.glb",
+  "model_formats": [
+    "glb"
+  ],
+  "model_viewer": "three_js",
+  "model_status": "available"
+}

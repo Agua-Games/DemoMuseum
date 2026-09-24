@@ -6,8 +6,10 @@ usamos para testar o sistema de ponta a ponta.
 Este repo existe para provar uma coisa só: que criar o site de um museu é **um comando para o repo
 e um comando para o build**, sem que a equipe MUSA toque em nada depois disso.
 
-> **Status: esqueleto.** Nada aqui está ligado ainda, porque o artefato publicado do MUSA
-> (`musa` em `museum.config.json`) ainda não existe. A pasta `content/` está vazia de propósito.
+> **Status: ligado.** O site é construído pela imagem `ghcr.io/agua-games/musa-app` na versão
+> fixada em `museum.config.json` (`musa`). A pipeline valida cada ficha contra o contrato,
+> aplica o gating de publicação e de tier (um `draft` nunca chega ao payload) e publica no
+> GitHub Pages — com um relatório de build explicando cada inclusão e exclusão.
 
 ---
 

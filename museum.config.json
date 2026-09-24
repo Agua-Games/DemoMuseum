@@ -5,15 +5,27 @@
     "locale": "pt-BR",
     "domain": "demo.musa.example"
   },
-  "musa": "0.0.0-unreleased",
+  "musa": "0.1.1",
   "entitlements": {
     "source": "https://api.musa.example/v1/entitlements/demo-museum",
     "tier": "gold",
-    "modules": ["assistant", "streaming", "screening-room", "store"],
+    "modules": [
+      "assistant",
+      "streaming",
+      "screening-room",
+      "store"
+    ],
     "issued": "2026-09-17",
     "signature": null
   },
   "storage": {
     "assetsBaseUrl": "https://assets.musa.example/demo-museum/"
+  },
+  "site": {
+    "heroVideo": "siuAaTMil6g",
+    "skin": {
+      "collections": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Alexander_Johnston_%281815-1891%29_-_Scottish_Interior_-_BURGM-paoil288_-_Towneley_Hall_Art_Gallery_And_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "twin": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Alexander_Johnston_%281815-1891%29_-_Scottish_Interior_-_BURGM-paoil288_-_Towneley_Hall_Art_Gallery_And_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
   }
 }
