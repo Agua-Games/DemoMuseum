@@ -34,3 +34,6 @@ scratch/
 .cursor/
 .vscode/
 .zed/
+
+# Local API state (musa-build serve) — never commit the write overlay
+.musa/
