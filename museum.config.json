@@ -5,7 +5,7 @@
     "locale": "pt-BR",
     "domain": "demo.musa.example"
   },
-  "musa": "0.1.2",
+  "musa": "0.1.3",
   "entitlements": {
     "source": "https://api.musa.example/v1/entitlements/demo-museum",
     "tier": "gold",
@@ -15,8 +15,10 @@
       "screening-room",
       "store"
     ],
-    "issued": "2026-09-17",
-    "signature": null
+    "issued": "2026-09-25",
+    "signature": "D1qcl9MSqJm++Khs/YBwEHs4b7cuaCmeuRmvHD0pFFHTLt+f+TJFPJkbY1ojooNZ0KKbikdNd78WXuchALY1Cw==",
+    "museum_id": "demo-museum",
+    "expires": "2027-09-25"
   },
   "storage": {
     "assetsBaseUrl": "https://assets.musa.example/demo-museum/"
