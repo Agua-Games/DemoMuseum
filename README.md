@@ -7,7 +7,7 @@ Este repo existe para provar uma coisa só: que criar o site de um museu é **um
 e um comando para o build**, sem que a equipe MUSA toque em nada depois disso.
 
 > **Status: ligado.** O site é construído pela imagem `ghcr.io/agua-games/musa-app` na versão
-> fixada em `museum.config.json` (`musa`). A pipeline valida cada ficha contra o contrato,
+> fixada em `museum.config.json` (`musa`). A pipeline valida cado card contra o contrato,
 > aplica o gating de publicação e de tier (um `draft` nunca chega ao payload) e publica no
 > GitHub Pages — com um relatório de build explicando cada inclusão e exclusão.
 
@@ -25,8 +25,8 @@ Não há `node_modules` do MUSA, não há binário copiado, não há fork.
 | | Onde vive |
 |---|---|
 | Site publicado | CDN / host estático (domínio do museu) |
-| Conteúdo curadorial (fichas, coleções) | este repo — **o seed**, versionado e auditável |
-| Assets pesados (GLB, USD, imagens de alta) | object storage; a `ficha.json` referencia por URL |
+| Conteúdo curadorial (cards, coleções) | este repo — **o seed**, versionado e auditável |
+| Assets pesados (GLB, USD, imagens de alta) | object storage; a `card.json` referencia por URL |
 | Edições do dia a dia da curadoria | banco + índice do MUSA (não este repo) |
 | Código da plataforma | `Agua-Games/Musa_app-service` — consumido **por versão fixada** |
 
@@ -50,11 +50,11 @@ projeto já aprendeu isso na prática — 26 MB de `.glb` foram retirados do his
 
 ```mermaid
 flowchart LR
-    A["content/<br/>fichas + coleções"] --> D
+    A["content/<br/>cards + coleções"] --> D
     B["museum.config.json<br/>identidade · versão fixada · entitlements"] --> D
-    C["assets no object storage<br/>(URLs nas fichas)"] --> D
+    C["assets no object storage<br/>(URLs nos cards)"] --> D
     D["CI: builder do MUSA<br/>@musa/app@versão-fixada"] --> E{"validação<br/>contra o contrato"}
-    E -- "ficha inválida" --> F["falha o build<br/>nada é publicado"]
+    E -- "card inválida" --> F["falha o build<br/>nada é publicado"]
     E -- ok --> G["filtra por tier<br/>e por website_status"]
     G --> H["site estático"]
     H --> I["CDN / domínio do museu"]
@@ -64,8 +64,8 @@ As cinco etapas, em detalhe:
 
 1. **Onde está o MUSA.** O builder obtém `@musa/app@<versão fixada em museum.config.json>` — pacote
    npm, imagem de container ou bundle estático. Nada disso é copiado para dentro deste repo.
-2. **Validação.** Cada `ficha.json` é validada contra o contrato
-   (`schemas/ficha.schema.json`, na plataforma). Ficha fora do contrato **falha o build**. É isso
+2. **Validação.** Cada `card.json` é validada contra o contrato
+   (`schemas/card.schema.json`, na plataforma). Card fora do contrato **falha o build**. É isso
    que dá sentido a "asset watertight": não é promessa, é portão.
 3. **Gating no build, não no browser.** O site só é gerado com o conteúdo que o museu **contratou**
    (tier/módulos vindos dos entitlements do servidor) e **publicou** (`website_status`). Numa build
@@ -95,7 +95,7 @@ O builder espera, por coleção:
 content/<colecao>/
 ├── collection.json    # metadados da coleção
 └── <peca>/
-    ├── ficha.json     # conforme schemas/ficha.schema.json
+    ├── card.json     # conforme schemas/card.schema.json
     └── images/        # imagens de apresentação
 ```
 
@@ -124,7 +124,7 @@ O procedimento operacional completo está em
 3. **`entitlements` nunca é editado à mão.** Vem do servidor do MUSA; é ele que define o tier.
    Se este arquivo pudesse definir o tier, o cliente se promoveria editando uma linha.
 4. **Nada não publicado pode chegar ao payload.** O `draft` fica fora do site gerado.
-5. **`ficha.json` válida contra o contrato, sempre.** O build é o portão.
+5. **`card.json` válida contra o contrato, sempre.** O build é o portão.
 
 ## Documentos de referência (na plataforma)
 
@@ -133,12 +133,12 @@ O procedimento operacional completo está em
 | `docs/adr/0003-onboarding-de-clientes.md` | por que o cliente consome o MUSA por versão fixada |
 | `docs/Musa_design onboarding.md` | passo a passo operacional |
 | `docs/adr/0001-camada-de-acervo.md` | o contrato da camada de acervo |
-| `schemas/ficha.schema.json` | o contrato em si |
+| `schemas/card.schema.json` | o contrato em si |
 
 ## Uso pretendido: cliente virtual
 
 Além de ser o esqueleto de um cliente real, este repo é onde rodamos o **cliente virtual** da fase
 beta: harnesses que simulam as ações pontuais e cotidianas de um curador (publicar, despublicar,
-subir imagem, corrigir ficha) e também os erros de uso (arquivo grande demais, campo obrigatório
+subir imagem, corrigir card) e também os erros de uso (arquivo grande demais, campo obrigatório
 ausente, `asset_id` duplicado, upload interrompido, edições concorrentes), verificando depois que
 os invariantes acima continuam valendo. O roteiro está no hand-off da plataforma.
