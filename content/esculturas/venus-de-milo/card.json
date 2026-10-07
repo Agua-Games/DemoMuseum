@@ -1,0 +1,15 @@
+{
+  "asset_id": "venus-de-milo",
+  "titulo": "Vênus de Milo",
+  "colecao": "esculturas",
+  "material": "Mármore de Paros",
+  "descricao": "Escaneamento 3D de estudo da Afrodite de Milos (c. 130 a.C., Museu do Louvre).",
+  "website_status": "published",
+  "tier": "silver",
+  "model_primary": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/venus-de-milo/models/venus-de-milo.glb",
+  "model_formats": [
+    "glb"
+  ],
+  "model_viewer": "three_js",
+  "model_status": "available"
+}

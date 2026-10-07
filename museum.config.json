@@ -21,7 +21,10 @@
     "expires": "2027-09-25"
   },
   "storage": {
-    "assetsBaseUrl": "https://assets.musa.example/demo-museum/"
+    "provider": "r2",
+    "bucket": "musa-assets-demo-museum",
+    "endpoint": "https://00f937fc8d507aaf56aff74eb5602df0.r2.cloudflarestorage.com",
+    "assetsBaseUrl": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev"
   },
   "site": {
     "heroVideo": "siuAaTMil6g",
