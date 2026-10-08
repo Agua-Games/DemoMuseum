@@ -1,5 +1,9 @@
 {
+  "id": "esculturas",
   "title": "Esculturas e Artes Decorativas",
-  "description": "Peças com modelos 3D interativos.",
-  "tier": "silver"
+  "description": "Antiguidades clássicas e artes aplicadas — peças com modelos 3D interativos.",
+  "cover": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/cover.jpg",
+  "tier": "silver",
+  "subcollections": [],
+  "website_status": "published"
 }

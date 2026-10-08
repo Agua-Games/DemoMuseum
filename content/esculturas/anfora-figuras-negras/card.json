@@ -1,0 +1,19 @@
+{
+  "asset_id": "anfora-figuras-negras",
+  "titulo": "Ânfora de Figuras Negras",
+  "colecao": "esculturas",
+  "autor": "Desconhecido (oficina ática)",
+  "data": "-540",
+  "material": "Terracota, figuras negras",
+  "dimensoes": "42 × 26 cm",
+  "descricao": "Ânfora de armazenamento com painéis de figuras negras. Fotogrametria agendada — pipeline 3D em andamento.",
+  "website_status": "published",
+  "tier": "silver",
+  "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/anfora-figuras-negras/images/anfora-figuras-negras.jpg",
+  "model_status": "processing",
+  "tags": [
+    "cerâmica",
+    "grécia",
+    "arcaico"
+  ]
+}

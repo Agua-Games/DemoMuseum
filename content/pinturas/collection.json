@@ -1,5 +1,6 @@
 {
   "title": "Pinturas",
-  "description": "Pinturas do acervo demo.",
-  "tier": "bronze"
+  "description": "Pintura holandesa do Século de Ouro e Impressionismo francês.",
+  "tier": "bronze",
+  "cover": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/pinturas/ronda-noturna/images/ronda-noturna.jpg"
 }

@@ -1,0 +1,18 @@
+{
+  "asset_id": "nenufares",
+  "titulo": "Nenúfares",
+  "colecao": "pinturas",
+  "autor": "Claude Monet",
+  "data": "1906",
+  "material": "Óleo sobre tela",
+  "dimensoes": "89.9 × 94.1 cm",
+  "descricao": "Um painel da meditação obsessiva de Monet, ao longo de décadas, sobre o lago de seu jardim em Giverny. Cópia de estudo da obra (domínio público).",
+  "website_status": "published",
+  "tier": "bronze",
+  "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/pinturas/nenufares/images/nenufares.jpg",
+  "tags": [
+    "pintura",
+    "frança",
+    "impressionismo"
+  ]
+}

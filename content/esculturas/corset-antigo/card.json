@@ -2,14 +2,24 @@
   "asset_id": "corset-antigo",
   "titulo": "Espartilho Antigo",
   "colecao": "esculturas",
-  "material": "Tecido e barbatanas",
-  "descricao": "Modelo 3D de estudo (Khronos glTF Sample Assets).",
+  "autor": "Atelier Cécile (atribuição demo)",
+  "data": "1880",
+  "material": "Seda, barbatanas, metal",
+  "dimensoes": "58 × 42 cm",
+  "descricao": "Espartilho de noite estruturado, demonstrando a construção de alta-costura do século XIX. Modelo 3D de estudo interativo (Khronos glTF Sample Assets).",
   "website_status": "published",
   "tier": "silver",
+  "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/corset-antigo/images/corset-antigo.jpg",
   "model_primary": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/Corset/glTF-Binary/Corset.glb",
   "model_formats": [
     "glb"
   ],
   "model_viewer": "three_js",
-  "model_status": "available"
+  "model_status": "available",
+  "tags": [
+    "moda",
+    "têxtil",
+    "século xix",
+    "3d"
+  ]
 }

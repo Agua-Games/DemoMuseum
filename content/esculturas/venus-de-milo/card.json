@@ -2,14 +2,25 @@
   "asset_id": "venus-de-milo",
   "titulo": "Vênus de Milo",
   "colecao": "esculturas",
+  "autor": "Alexandro de Antioquia (atrib.)",
+  "data": "-130",
   "material": "Mármore de Paros",
-  "descricao": "Escaneamento 3D de estudo da Afrodite de Milos (c. 130 a.C., Museu do Louvre).",
+  "dimensoes": "204 cm",
+  "descricao": "Estátua helenística de Afrodite, descoberta em Milos em 1820. Escaneamento 3D publicado em CC0 pela Galeria Nacional da Dinamarca (SMK) via programa de patrimônio cultural do Sketchfab.",
   "website_status": "published",
   "tier": "silver",
+  "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/venus-de-milo/images/venus-de-milo.jpg",
   "model_primary": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/venus-de-milo/models/venus-de-milo.glb",
+  "model_source": "https://sketchfab.com/3d-models/venus-de-milo-statuestexturingchallenge-smk-2983d92ac4e744f485492580ca7629f2",
   "model_formats": [
     "glb"
   ],
   "model_viewer": "three_js",
-  "model_status": "available"
+  "model_status": "available",
+  "tags": [
+    "escultura",
+    "grécia",
+    "helenístico",
+    "3d"
+  ]
 }

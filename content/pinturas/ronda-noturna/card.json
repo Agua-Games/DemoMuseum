@@ -5,9 +5,11 @@
   "autor": "Rembrandt van Rijn",
   "data": "1642",
   "material": "Óleo sobre tela",
-  "descricao": "Cópia de estudo da obra de Rembrandt (Rijksmuseum, domínio público).",
+  "dimensoes": "363 × 437 cm",
+  "descricao": "O monumental retrato de guarda cívica de Rembrandt — movimento, sombra e luz dourada em escala cívica. Cópia de estudo da obra (Rijksmuseum, domínio público).",
   "website_status": "published",
   "tier": "bronze",
+  "hero": true,
   "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/pinturas/ronda-noturna/images/ronda-noturna.jpg",
   "tags": [
     "barroco",

@@ -1,0 +1,20 @@
+{
+  "asset_id": "busto-nefertiti",
+  "titulo": "Busto de Nefertiti",
+  "colecao": "esculturas",
+  "autor": "Tutmés (oficina, atrib.)",
+  "data": "-1345",
+  "material": "Calcário pintado, estuque",
+  "dimensoes": "47 cm",
+  "descricao": "O icônico busto de calcário pintado da rainha Nefertiti, período de Amarna. A fotografia do original está sujeita à política do museu; exibida aqui como imagem de estudo.",
+  "website_status": "published",
+  "tier": "silver",
+  "hero": true,
+  "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/busto-nefertiti/images/busto-nefertiti.jpg",
+  "model_status": "unavailable",
+  "tags": [
+    "escultura",
+    "egito",
+    "amarna"
+  ]
+}

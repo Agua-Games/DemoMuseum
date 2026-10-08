@@ -1,0 +1,19 @@
+{
+  "asset_id": "autorretrato-van-gogh",
+  "titulo": "Autorretrato",
+  "colecao": "pinturas",
+  "autor": "Vincent van Gogh",
+  "data": "1889",
+  "material": "Óleo sobre tela",
+  "dimensoes": "65 × 54 cm",
+  "descricao": "Pintado em Saint-Rémy-de-Provence enquanto o artista estava internado no asilo — ultramarino e violeta em redemoinho. Cópia de estudo da obra (domínio público).",
+  "website_status": "published",
+  "tier": "bronze",
+  "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/pinturas/autorretrato-van-gogh/images/autorretrato-van-gogh.jpg",
+  "tags": [
+    "pintura",
+    "holanda",
+    "pós-impressionismo",
+    "retrato"
+  ]
+}

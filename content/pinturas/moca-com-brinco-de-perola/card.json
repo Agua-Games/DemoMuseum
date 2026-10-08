@@ -1,0 +1,20 @@
+{
+  "asset_id": "moca-com-brinco-de-perola",
+  "titulo": "Moça com Brinco de Pérola",
+  "colecao": "pinturas",
+  "autor": "Johannes Vermeer",
+  "data": "1665",
+  "material": "Óleo sobre tela",
+  "dimensoes": "44.5 × 39 cm",
+  "descricao": "Um tronie — estudo de uma moça em traje exótico, voltada por cima do ombro para o observador. A pérola é pintada com duas pinceladas de branco de chumbo. Cópia de estudo da obra de Vermeer (Mauritshuis, domínio público).",
+  "website_status": "published",
+  "tier": "bronze",
+  "hero": true,
+  "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/pinturas/moca-com-brinco-de-perola/images/moca-com-brinco-de-perola.jpg",
+  "tags": [
+    "pintura",
+    "holanda",
+    "século de ouro",
+    "retrato"
+  ]
+}

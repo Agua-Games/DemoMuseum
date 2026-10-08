@@ -1,0 +1,19 @@
+{
+  "asset_id": "estatua-taweret",
+  "titulo": "Estátua da Deusa Taweret",
+  "colecao": "esculturas",
+  "autor": "Desconhecido",
+  "data": "-1400",
+  "material": "Grauvaque",
+  "dimensoes": "74 cm",
+  "descricao": "A deusa doméstica com cabeça de hipopótamo, Taweret, protetora de mães e crianças. Fotografia histórica de arquivo, Museu do Cairo.",
+  "website_status": "published",
+  "tier": "silver",
+  "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/estatua-taweret/images/estatua-taweret.jpg",
+  "model_status": "unavailable",
+  "tags": [
+    "escultura",
+    "egito",
+    "reino novo"
+  ]
+}

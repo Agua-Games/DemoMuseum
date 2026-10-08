@@ -1,0 +1,25 @@
+{
+  "asset_id": "lanterna-edo",
+  "titulo": "Lanterna do Período Edo",
+  "colecao": "esculturas",
+  "autor": "Desconhecido",
+  "data": "1750",
+  "material": "Ferro, washi, laca",
+  "dimensoes": "52 × 28 cm",
+  "descricao": "Lanterna de viagem com suporte interno para vela. Modelo 3D de estudo interativo.",
+  "website_status": "published",
+  "tier": "silver",
+  "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/lanterna-edo/images/lanterna-edo.jpg",
+  "model_primary": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/lanterna-edo/models/lanterna-edo.glb",
+  "model_formats": [
+    "glb"
+  ],
+  "model_viewer": "three_js",
+  "model_status": "available",
+  "tags": [
+    "objeto",
+    "japão",
+    "edo",
+    "3d"
+  ]
+}

@@ -2,14 +2,24 @@
   "asset_id": "elmo-samurai",
   "titulo": "Elmo Samurai (Kabuto)",
   "colecao": "esculturas",
-  "material": "Aço laqueado",
-  "descricao": "Modelo 3D de estudo (Khronos glTF Sample Assets).",
+  "autor": "Armeiro desconhecido",
+  "data": "1600",
+  "material": "Ferro laqueado, seda",
+  "dimensoes": "38 × 30 cm",
+  "descricao": "Kabuto marcado de batalha, com crista. Modelo 3D de estudo de superfície com conjunto completo de texturas PBR (Khronos glTF Sample Assets).",
   "website_status": "published",
   "tier": "silver",
+  "image": "https://pub-61e9fc2b46a54c66a9421fe7c23a5b64.r2.dev/esculturas/elmo-samurai/images/elmo-samurai.jpg",
   "model_primary": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/DamagedHelmet/glTF-Binary/DamagedHelmet.glb",
   "model_formats": [
     "glb"
   ],
   "model_viewer": "three_js",
-  "model_status": "available"
+  "model_status": "available",
+  "tags": [
+    "armadura",
+    "japão",
+    "edo",
+    "3d"
+  ]
 }
