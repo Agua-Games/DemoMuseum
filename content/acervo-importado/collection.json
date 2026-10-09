@@ -1,0 +1,5 @@
+{
+  "title": "Acervo Importado (Pipeline M2)",
+  "description": "450 fichas catalogadas pela pipeline OCR + LLM, medidas em docs/M2_resultados.md.",
+  "tier": "bronze"
+}

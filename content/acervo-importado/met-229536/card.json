@@ -1,0 +1,16 @@
+{
+  "titulo": "Piece",
+  "data": "1880",
+  "material": "Metal thread",
+  "dimensoes": "L. 14 x W. 8 inches (35.6 x 20.3 cm)",
+  "descricao": "Peça em fio metálico, medindo 35,6 x 20,3 cm.",
+  "tags": [
+    "peça",
+    "fio metálico",
+    "século xix"
+  ],
+  "asset_id": "met-229536",
+  "colecao": "acervo-importado",
+  "website_status": "draft",
+  "tier": "bronze"
+}

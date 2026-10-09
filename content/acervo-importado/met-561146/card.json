@@ -1,0 +1,18 @@
+{
+  "titulo": "Lump of Raw Copper",
+  "data": "-1550/-1300",
+  "material": "Copper",
+  "dimensoes": "D. 5 × Th. 2 cm (1 15/16 in. × 13/16 in.)",
+  "descricao": "Fragmento de cobre bruto do Novo Império.",
+  "tags": [
+    "cobre",
+    "fragmento",
+    "novo império",
+    "egito",
+    "matéria-prima"
+  ],
+  "asset_id": "met-561146",
+  "colecao": "acervo-importado",
+  "website_status": "published",
+  "tier": "bronze"
+}
