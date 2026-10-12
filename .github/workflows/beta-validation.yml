@@ -1,0 +1,114 @@
+# Beta validation — the virtual client (M3.4, ADRs 0014–0016).
+#
+# MANUAL ONLY (workflow_dispatch): owner decision, 2026-10-10 (ADR 0015
+# amendment) — no permanent cron until a real client exists; builds and
+# validations are event-driven, never scheduled. When the first real client
+# arrives, add:  schedule: [{ cron: "17 3 * * *" }]  (off-peak minute) and
+# the 14-days-without-regression clock starts ticking.
+#
+# What it does: pulls the PINNED artifact image (the "musa" field of
+# museum.config.json — the same image the deploy builds with), runs the
+# personas + misuse generator + invariants against a DISPOSABLE copy of this
+# repository inside the container, and publishes the JSONL log + report as an
+# artifact. Nothing is committed, deployed or uploaded to R2: persona writes
+# live in a temp overlay that dies with the container (plan M3 restrictions
+# 2 and 4). A failure opens (or updates, dedup by fingerprint) an issue with
+# the label "beta-validation"; a green run closes open ones.
+
+name: beta validation (virtual client)
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: "personas | misuse | all"
+        type: choice
+        options: ["all", "personas", "misuse"]
+        default: "all"
+      seed:
+        description: "deterministic action sequence (same seed = same run)"
+        type: number
+        default: 42
+
+permissions:
+  contents: read
+  issues: write
+  packages: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repository (the client)
+        uses: actions/checkout@v4
+        with:
+          path: client
+
+      - name: Read the pinned artifact version
+        id: pin
+        run: |
+          VERSION=$(python3 -c "import json; print(json.load(open('client/museum.config.json'))['musa'])")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Pinned artifact: $VERSION"
+
+      - name: Log in to the GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_PULL_TOKEN }}
+
+      - name: Run the virtual client inside the pinned artifact image
+        run: |
+          docker run --rm -v "${{ github.workspace }}:/work" --entrypoint python \
+            "ghcr.io/agua-games/musa-app:${{ steps.pin.outputs.version }}" \
+            -m beta.run_beta --repo /work/client --out /work/beta-out \
+            --suite "${{ inputs.suite }}" --seed "${{ inputs.seed }}"
+
+      - name: Upload the run log and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: beta-validation-${{ github.run_id }}
+          path: beta-out/
+          if-no-files-found: warn
+
+      - name: Ensure the beta-validation label exists
+        if: always()
+        run: gh label create beta-validation --force --color BFD4F2 --description "Virtual client (beta) validation findings"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: On failure, open or update an issue (dedup by fingerprint)
+        if: failure()
+        run: |
+          python3 - <<'EOF' > /tmp/failures.env
+          import json, glob
+          events = []
+          for path in glob.glob("beta-out/beta-log-*.jsonl"):
+              events += [json.loads(l) for l in open(path, encoding="utf-8")]
+          fails = sorted({f"{e['cenario']}/{e['acao']}" for e in events if e["veredito"] == "reprova"})
+          print("FINGERPRINT=" + (";".join(fails)[:180] or "infra: run did not complete"))
+          print("COUNT=" + str(len(fails)))
+          EOF
+          source /tmp/failures.env
+          TITLE="[beta] regressão: $FINGERPRINT"
+          BODY="Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\n\nCenários reprovados ($COUNT):\n\`\`\`\n$FINGERPRINT\n\`\`\`\nLog e relatório: artifact \`beta-validation-${{ github.run_id }}\` do run."
+          EXISTING=$(gh issue list --label beta-validation --state open --json number,title \
+            --jq ".[] | select(.title | contains(\"$FINGERPRINT\")) | .number" | head -1)
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "Regressão persiste no run $GITHUB_RUN_ID."
+          else
+            gh issue create --title "$TITLE" --label beta-validation --body "$BODY"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: On success, close open beta-validation issues
+        if: success()
+        run: |
+          for N in $(gh issue list --label beta-validation --state open --json number --jq ".[].number"); do
+            gh issue close "$N" --comment "Verde no run $GITHUB_RUN_ID — regressão curada."
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
