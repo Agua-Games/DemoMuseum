@@ -75,31 +75,25 @@ jobs:
 
       - name: Ensure the beta-validation label exists
         if: always()
-        run: gh label create beta-validation --force --color BFD4F2 --description "Virtual client (beta) validation findings"
+        # gh needs -R: the checkout lives in the client/ subdirectory, so the
+        # workspace root is not a git repository.
+        run: gh label create beta-validation --force --color BFD4F2 --description "Virtual client (beta) validation findings" -R "${{ github.repository }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: On failure, open or update an issue (dedup by fingerprint)
         if: failure()
         run: |
-          python3 - <<'EOF' > /tmp/failures.env
-          import json, glob
-          events = []
-          for path in glob.glob("beta-out/beta-log-*.jsonl"):
-              events += [json.loads(l) for l in open(path, encoding="utf-8")]
-          fails = sorted({f"{e['cenario']}/{e['acao']}" for e in events if e["veredito"] == "reprova"})
-          print("FINGERPRINT=" + (";".join(fails)[:180] or "infra: run did not complete"))
-          print("COUNT=" + str(len(fails)))
-          EOF
+          python3 .github/scripts/beta_fail_fingerprint.py > /tmp/failures.env
           source /tmp/failures.env
           TITLE="[beta] regressão: $FINGERPRINT"
           BODY="Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\n\nCenários reprovados ($COUNT):\n\`\`\`\n$FINGERPRINT\n\`\`\`\nLog e relatório: artifact \`beta-validation-${{ github.run_id }}\` do run."
-          EXISTING=$(gh issue list --label beta-validation --state open --json number,title \
+          EXISTING=$(gh issue list -R "${{ github.repository }}" --label beta-validation --state open --json number,title \
             --jq ".[] | select(.title | contains(\"$FINGERPRINT\")) | .number" | head -1)
           if [ -n "$EXISTING" ]; then
-            gh issue comment "$EXISTING" --body "Regressão persiste no run $GITHUB_RUN_ID."
+            gh issue comment "$EXISTING" -R "${{ github.repository }}" --body "Regressão persiste no run $GITHUB_RUN_ID."
           else
-            gh issue create --title "$TITLE" --label beta-validation --body "$BODY"
+            gh issue create -R "${{ github.repository }}" --title "$TITLE" --label beta-validation --body "$BODY"
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -107,8 +101,8 @@ jobs:
       - name: On success, close open beta-validation issues
         if: success()
         run: |
-          for N in $(gh issue list --label beta-validation --state open --json number --jq ".[].number"); do
-            gh issue close "$N" --comment "Verde no run $GITHUB_RUN_ID — regressão curada."
+          for N in $(gh issue list -R "${{ github.repository }}" --label beta-validation --state open --json number --jq ".[].number"); do
+            gh issue close "$N" -R "${{ github.repository }}" --comment "Verde no run $GITHUB_RUN_ID — regressão curada."
           done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
