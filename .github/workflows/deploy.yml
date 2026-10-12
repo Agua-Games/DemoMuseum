@@ -66,7 +66,11 @@ jobs:
       # the contract or the pin does not match an existing artifact version.
       - name: Build the site with the pinned artifact
         run: |
-          docker run --rm -v "$GITHUB_WORKSPACE:/work" \
+          # --user root: the image's default user is the unprivileged "musa"
+          # (M4.1), but this batch build must write _site/ into the mounted
+          # workspace. Root inside a throwaway CI runner is acceptable; the
+          # production runtime keeps the non-root default.
+          docker run --rm --user root -v "$GITHUB_WORKSPACE:/work" \
             "ghcr.io/agua-games/musa-app:${{ steps.pin.outputs.version }}" \
             build --repo /work --frontend /app/frontend --out /work/_site
 

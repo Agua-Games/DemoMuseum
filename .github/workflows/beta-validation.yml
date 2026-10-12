@@ -60,7 +60,9 @@ jobs:
 
       - name: Run the virtual client inside the pinned artifact image
         run: |
-          docker run --rm -v "${{ github.workspace }}:/work" --entrypoint python \
+          # --user root: the harness writes beta-out/ into the mounted
+          # workspace; the image's default user is unprivileged (M4.1).
+          docker run --rm --user root -v "${{ github.workspace }}:/work" --entrypoint python \
             "ghcr.io/agua-games/musa-app:${{ steps.pin.outputs.version }}" \
             -m beta.run_beta --repo /work/client --out /work/beta-out \
             --suite "${{ inputs.suite }}" --seed "${{ inputs.seed }}"
