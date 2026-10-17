@@ -55,6 +55,18 @@ jobs:
           echo "pinned MUSA version: $VERSION"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
+      # M4.5 edge case "CI sem secrets": fail EXPLICITLY here, not with a
+      # cryptic docker login error three steps later.
+      - name: Preflight — required secrets configured
+        run: |
+          if [ -z "${GHCR_PULL_TOKEN:-}" ]; then
+            echo "::error::Secret GHCR_PULL_TOKEN is not configured — see the one-time setup comment at the top of this file (step 2)."
+            exit 1
+          fi
+          echo "GHCR_PULL_TOKEN is configured."
+        env:
+          GHCR_PULL_TOKEN: ${{ secrets.GHCR_PULL_TOKEN }}
+
       - name: Log in to the GitHub Container Registry
         uses: docker/login-action@v3
         with:

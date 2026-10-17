@@ -21,9 +21,9 @@ on:
   workflow_dispatch:
     inputs:
       suite:
-        description: "personas | misuse | all"
+        description: "personas | misuse | edge | all (edge needs artifact >= 0.5.0)"
         type: choice
-        options: ["all", "personas", "misuse"]
+        options: ["all", "personas", "misuse", "edge"]
         default: "all"
       seed:
         description: "deterministic action sequence (same seed = same run)"
